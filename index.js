@@ -234,15 +234,15 @@ function getArtistByIndex(array, index) {
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who lived in the 20th century (1900-2000) */
 
-function get20s(modernArtist){
-  newArr = [];
-  if(modernArtist >= 1900 && modernArtist <= 2000){
-    newArr.push(modernArtist);
-    console.log(newArr);    
+function removeArtist(arr, ind){
+  for(i=0;i<arr.length;++i){
+    if(arr[i].id===ind){
+      arr.splice([i], 1);        
+      console.log(arr.length);
+    }
   }
-  return newArr;
 }
-get20s(1901);
+removeArtist(artists, 0);
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
@@ -281,11 +281,12 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should console.log() the new array with information added"*/
 
-function addArtist(/* Code here */){
+function addArtist(arr, id, name, years, genre, nationality, bio){
 
-    /* Code here */
-
-  }
+  arr.push({id, name, years, genre, nationality, bio});
+  return arr;
+}
+console.log(addArtist(artists, 20, 'Andy Caruso', '1983-present', 'Dubstep', 'Martian', 'Just a regular dude from Mars who likes to incorporate the sound of high frequency dissonance into music nobody can understand'));
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -295,11 +296,19 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
+function lotsOfArt(arr){
 
+  newArr = [];
   /* Code here */
+  for(i=0;i<arr.length;++i){
 
+    if(arr[i].paintings > 100){
+      newArr.push(arr[i].name);
+    }
+  }  
+return newArr;
 }
+console.log(lotsOfArt(artists));
 
 
 
